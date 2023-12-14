@@ -1,0 +1,34 @@
+.input-group {
+  display: flex;
+  position: relative;
+  align-items: stretch;
+  margin-bottom: 1rem; /* Add space below the input group */
+}
+
+.chat-textarea {
+  width: 50em;
+  padding: 1rem;
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  outline: none;
+  background-color: rgb(57, 55, 55);
+  border-radius: 8px 0 0 8px;
+}
+
+.send-button {
+  color: white;
+  background-color: rgb(57, 55, 55);
+  border: none;
+  border-radius: 0 8px 8px 0; /* Round corners on the right side only */
+  padding: 0.5rem 0.75rem; /* Adjust padding as needed */
+  margin: 0; /* Remove any default margin */
+  cursor: pointer;
+}
+
+/* FontAwesome icon style */
+.fas.fa-paper-plane {
+  color: white;
+}
