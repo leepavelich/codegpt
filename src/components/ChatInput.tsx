@@ -58,6 +58,7 @@ const ChatInput: React.FC = () => {
         ...conversation.value,
         { role: "user", content: inputVal },
       ]);
+
       if (responseStream) {
         for await (const chunk of responseStream) {
           const contentChunk = chunk.choices[0]?.delta?.content || "";
