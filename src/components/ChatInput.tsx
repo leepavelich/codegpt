@@ -1,10 +1,15 @@
 import React from "react";
 import { openAIRequest } from "../services/openai";
-import { currentInput, conversation, isSending } from "../signals/chat";
+import {
+  currentInput,
+  conversation,
+  isSending,
+  errorMessage,
+} from "../signals/chat";
 import OpenAI from "openai";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./ChatInput.css";
 
 const ChatInput: React.FC = () => {
@@ -63,7 +68,10 @@ const ChatInput: React.FC = () => {
         }
       }
     } catch (error) {
-      console.error(error);
+      if (error instanceof OpenAI.APIError) {
+        const userFriendlyErrorMessage = `Error ${error.status}: ${error.name}`;
+        errorMessage.value = userFriendlyErrorMessage;
+      }
     } finally {
       isSending.value = false;
     }
@@ -81,8 +89,20 @@ const ChatInput: React.FC = () => {
     }
   };
 
+  const clearErrorMessage = () => {
+    errorMessage.value = null;
+  };
+
   return (
     <>
+      {errorMessage.value && (
+        <div className="error-message">
+          <span className="error-message-text">{errorMessage.value}</span>
+          <button onClick={clearErrorMessage} className="close-error">
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </div>
+      )}
       <div className="input-group">
         <textarea
           className="chat-textarea"

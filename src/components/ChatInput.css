@@ -32,3 +32,33 @@
 .fas.fa-paper-plane {
   color: white;
 }
+
+.error-message {
+  width: 50em;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.error-message-text {
+  flex-grow: 1; /* Ensure the text container grows and fills the space */
+  text-align: left; /* Align text to the left */
+}
+
+.close-error {
+  background: none;
+  border: none;
+  color: #721c24; /* Match the close button color with the text color */
+  cursor: pointer;
+  padding: 0; /* Remove padding to decrease the clickable area if necessary */
+}
+
+.close-error:hover {
+  color: #a94442; /* Slightly darker for hover effect */
+}
