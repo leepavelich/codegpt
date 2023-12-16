@@ -28,10 +28,11 @@ const ChatInput: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log("conversation", conversation.value);
     e.preventDefault();
     isSending.value = true;
-    const inputVal = currentInput.value.trim();
-    if (!inputVal.trim()) return;
+    const inputVal = currentInput.value;
+    if (!inputVal) return;
 
     const userMessage: OpenAI.Chat.ChatCompletionMessageParam = {
       role: "user",
@@ -43,8 +44,13 @@ const ChatInput: React.FC = () => {
 
     currentInput.value = "";
 
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }, 500);
+
     try {
       const responseStream = await openAIRequest([
+        ...conversation.value,
         { role: "user", content: inputVal },
       ]);
       if (responseStream) {
