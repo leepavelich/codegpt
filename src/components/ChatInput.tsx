@@ -70,17 +70,14 @@ const ChatInput: React.FC = () => {
   };
 
   const handleNewConversation = () => {
-    conversation.value = [
-      { role: "system", content: "New conversation started." },
-    ];
+    conversation.value = [];
     currentInput.value = "";
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    // Check if the user pressed Enter without the Shift key
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); // Prevent the default behavior of adding a new line
-      handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>); // Submit the form
+      e.preventDefault();
+      handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
     }
   };
 
