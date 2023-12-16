@@ -15,7 +15,7 @@
 
 .message.user {
   background-color: lightsteelblue;
-  text-align: right;
+  text-align: left;
 }
 
 .message.assistant {
