@@ -1,30 +1,13 @@
-# React + TypeScript + Vite
+# CodeGPT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeGPT is a custom ChatGPT-like interface using the OpenAI API with an emphasis on assistance with code generation.
 
-Currently, two official plugins are available:
+Here's a video showing the dynamic updating nature of the conversation, as well as automatic user prompt syntax highlighting:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://github.com/leepavelich/codegpt/assets/7843096/92c45275-b91b-4bb1-bf14-024a6d1b2266
 
-## Expanding the ESLint configuration
+### TODOs:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Add a db to store conversations
+- Add various system prompt wrappers (as tabs?), for example
+  - Paste the git diff along with a PR template, automatically remove changes like `package-lock.json` along with custom instructions for creating a PR descriptions ("Use the first person, link to documentation where appropriate, etc")
